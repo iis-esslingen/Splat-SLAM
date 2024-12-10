@@ -1,4 +1,4 @@
-dataset: 'stihl'
+dataset: 'rover'
 
 mapping:
   Calibration:
@@ -27,5 +27,5 @@ cam:  #NOTE: intrinsic is different per scene in TUM
   W_out: 512
 
 data:
-  dataset_root: datasets/STIHL
-  output: output/STIHL
+  dataset_root: datasets/ROVER
+  output: output/ROVER

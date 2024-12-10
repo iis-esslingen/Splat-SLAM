@@ -390,5 +390,5 @@ dataset_dict = {
     "replica": Replica,
     "scannet": ScanNet,
     "tumrgbd": TUM_RGBD,
-    "stihl": TUM_RGBD
+    "rover": TUM_RGBD
 }

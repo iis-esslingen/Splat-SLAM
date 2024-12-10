@@ -1,4 +1,4 @@
-inherit_from: ./configs/Stihl/stihl.yaml
+inherit_from: ./configs/ROVEr/rover.yaml
 
 scene: scene
 only_tracking: False

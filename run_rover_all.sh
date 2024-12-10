@@ -9,7 +9,7 @@ for date in "${dates[@]}"; do
 
     for trial in "${trials[@]}"; do
         echo "  Trial: $trial"
-        python run.py configs/Stihl/d435i.yaml --input_dir /media/mobile-robots/data_recording_r/2024-04-11/tum/d435i --output_dir output/short_only_tracking/$date/$trial --only_tracking
+        python run.py configs/ROVER/d435i.yaml --input_dir /media/mobile-robots/data_recording_r/2024-04-11/tum/d435i --output_dir output/short_only_tracking/$date/$trial --only_tracking
     done
 done
 
