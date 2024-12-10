@@ -2,7 +2,7 @@ inherit_from: ./configs/TUM_RGBD/tum.yaml
 scene: freiburg1_desk
 
 data:
-  input_folder: rgbd_dataset_freiburg1_desk
+  input_folder: /home/mobile-robots/Downloads/rgbd_dataset_freiburg1_desk
 cam:
   H: 480 
   W: 640 
