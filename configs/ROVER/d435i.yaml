@@ -1,4 +1,4 @@
-inherit_from: ./configs/ROVEr/rover.yaml
+inherit_from: ./configs/ROVER/rover.yaml
 
 scene: scene
 only_tracking: False
