@@ -34,6 +34,8 @@ def setup_seed(seed):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('config', type=str, help='Path to config file.')
+    parser.add_argument('--input_dir', type=str, help='Path to input directory.')
+    parser.add_argument('--output_dir', type=str, help='Path to output directory.')
     parser.add_argument("--only_tracking", action="store_true", help="Only tracking is triggered")
     args = parser.parse_args()
 
@@ -48,22 +50,24 @@ if __name__ == '__main__':
         cfg['only_tracking'] = True
         cfg['mono_prior']['predict_online'] = True
 
-    output_dir = cfg['data']['output']
-    output_dir = output_dir+f"/{cfg['scene']}"
+    if args.output_dir:
+        cfg['data']['output'] = args.output_dir
+    if args.input_dir:
+        cfg['data']['input_folder'] = args.input_dir
 
     start_time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
     start_info = "-"*30+Fore.LIGHTRED_EX+\
                  f"\nStart Splat-SLAM at {start_time},\n"+Style.RESET_ALL+ \
                  f"   scene: {cfg['dataset']}-{cfg['scene']},\n" \
                  f"   only_tracking: {cfg['only_tracking']},\n" \
-                 f"   output: {output_dir}\n"+ \
+                 f"   output: {cfg['data']['output']}\n"+ \
                  "-"*30
     print(start_info)
     
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    if not os.path.exists(cfg['data']['output']):
+        os.makedirs(cfg['data']['output'])
 
-    config.save_config(cfg, f'{output_dir}/cfg.yaml')
+    config.save_config(cfg, f"{cfg['data']['output']}/cfg.yaml")
 
     dataset = get_dataset(cfg)
 

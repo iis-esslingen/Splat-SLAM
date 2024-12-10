@@ -1,0 +1,16 @@
+inherit_from: ./configs/ROVEr/rover.yaml
+
+scene: scene
+only_tracking: False
+wandb: False
+
+data:
+  input_folder: datasets/TUM_RGBD/rgbd_dataset_freiburg1_desk
+cam:  #intrinsic is different per scene in TUM
+  H: 480 
+  W: 640 
+  fx: 596.1950425915236
+  fy: 593.1411835433107
+  cx: 327.0463454538411
+  cy: 245.16142133264628
+  distortion: [0.07561607662577634, -0.2088729975389971, -0.0023347441072184756, 0.004010356017731083]

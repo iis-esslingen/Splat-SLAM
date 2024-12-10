@@ -119,6 +119,9 @@ def kf_traj_eval(npz_path, plot_parent_dir,plot_name, stream, logger,printer):
     if not os.path.exists(plot_parent_dir):
         os.makedirs(plot_parent_dir)
 
+    from evo.tools import file_interface
+    file_interface.write_tum_trajectory_file(file_path=os.path.join(plot_parent_dir, "kf_trajectory_estimated.txt"), traj=traj_est, confirm_overwrite=True)
+
     ape_statistics = traj_eval_and_plot(traj_est,traj_ref,plot_parent_dir,plot_name,printer)
 
     output_str = "#"*10+"Keyframes traj"+"#"*10+"\n"
@@ -151,11 +154,14 @@ def full_traj_eval(traj_filler, plot_parent_dir, plot_name, stream,logger,printe
     traj_est[kf_timestamps] = kf_poses
     traj_est_not_align = traj_est.copy()
 
-    r_a, t_a, s, traj_est, traj_ref = align_full_traj(traj_est, stream, printer)    
+    r_a, t_a, s, traj_est, traj_ref = align_full_traj(traj_est, stream, printer)
 
     import os
     if not os.path.exists(plot_parent_dir):
         os.makedirs(plot_parent_dir)
+
+    from evo.tools import file_interface
+    file_interface.write_tum_trajectory_file(file_path=os.path.join(plot_parent_dir, "full_trajectory_estimated.txt"), traj=traj_est, confirm_overwrite=True)
 
     ape_statistics = traj_eval_and_plot(traj_est,traj_ref,plot_parent_dir,plot_name,printer)
     output_str = "#"*10+"Full traj"+"#"*10+"\n"

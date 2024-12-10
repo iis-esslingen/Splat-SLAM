@@ -96,8 +96,8 @@ class SLAM:
         self.printer.pbar_ready()
         self.tracker.run(self.stream)
         self.printer.print('Tracking Done!',FontColor.TRACKER)
-        if self.only_tracking:
-            self.terminate()
+        # if self.only_tracking:
+        #     self.terminate()
     
     def mapping(self, pipe):
         if self.only_tracking:
@@ -114,7 +114,7 @@ class SLAM:
         self.mapper.run()
         self.printer.print('Mapping Done!',FontColor.MAPPER)
 
-        self.terminate()
+        # self.terminate()
         
 
     def backend(self):
